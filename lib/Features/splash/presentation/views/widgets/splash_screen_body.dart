@@ -11,32 +11,22 @@ class SplashScreenBody extends StatefulWidget {
   State<SplashScreenBody> createState() => _SplashScreenBodyState();
 }
 
-class _SplashScreenBodyState extends State<SplashScreenBody> with TickerProviderStateMixin {
+class _SplashScreenBodyState extends State<SplashScreenBody>
+    with TickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<Offset> slideAnimation;
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2), 
-  );
-  slideAnimation = Tween<Offset>(
-    begin: const Offset(0, 10),
-    end: Offset.zero,
-  ).animate(CurvedAnimation(
-    parent: _animationController,
-    curve: Curves.fastOutSlowIn,
-  ));
-  _animationController.forward();
-  
-  
+    initSlidingAnimation();
   }
+
   @override
   void dispose() {
     _animationController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -54,7 +44,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> with TickerProvider
             ),
             Gap(30.h),
             SlideTransition(
-              position:slideAnimation ,
+              position: slideAnimation,
               child: Text(
                 'Read. Download. Share.',
                 style: TextStyle(fontSize: 20.sp),
@@ -65,5 +55,20 @@ class _SplashScreenBodyState extends State<SplashScreenBody> with TickerProvider
         ),
       ),
     );
+  }
+
+  void initSlidingAnimation() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 10),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.fastOutSlowIn,
+    ));
+    _animationController.forward();
   }
 }
