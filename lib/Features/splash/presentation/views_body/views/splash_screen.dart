@@ -1,4 +1,3 @@
-import 'package:bookly_app/Features/home/presentation/views_body/views/home_screen.dart';
 import 'package:bookly_app/core/functions/navigation.dart';
 import 'package:bookly_app/core/routes/routes.dart';
 import 'package:flutter/material.dart';
