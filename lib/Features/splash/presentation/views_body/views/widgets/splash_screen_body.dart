@@ -14,15 +14,20 @@ class SplashScreenBody extends StatelessWidget {
       child: Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SvgPicture.asset(
-              AssetsData.logo,
-              height: 200.h,
-              width: 200.w,
+            SizedBox(
+              height: 150.h,
+              child: SvgPicture.asset(
+                AssetsData.logo,
+              ),
             ),
             Gap(30.h),
-             Text(
-              'Read. Download. Share.',style: TextStyle(fontSize: 20.sp),)
+            Text(
+              'Read. Download. Share.',
+              style: TextStyle(fontSize: 20.sp),
+              textAlign: TextAlign.center,
+            )
           ],
         ),
       ),
