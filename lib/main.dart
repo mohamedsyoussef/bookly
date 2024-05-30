@@ -18,8 +18,7 @@ class BooklyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp.router(
-          theme: ThemeData()
-              .copyWith(scaffoldBackgroundColor: primaryColor),
+          theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: primaryColor),
           routerConfig: appRouter,
           debugShowCheckedModeBanner: false,
         );

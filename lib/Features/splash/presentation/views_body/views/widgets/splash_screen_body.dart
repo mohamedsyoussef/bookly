@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,14 +16,13 @@ class SplashScreenBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              'assets/images/Logo.svg',
+              AssetsData.logo,
               height: 200.h,
               width: 200.w,
             ),
             Gap(30.h),
-            const CircularProgressIndicator(
-              color: Colors.white,
-            )
+             Text(
+              'Read. Download. Share.',style: TextStyle(fontSize: 20.sp),)
           ],
         ),
       ),
