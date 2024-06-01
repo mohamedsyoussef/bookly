@@ -13,7 +13,6 @@ class CustomBookView extends StatelessWidget {
       width: 150.w,
       height: 224.h,
       decoration: const BoxDecoration(
-        color: Colors.white,
         image: DecorationImage(
           image: AssetImage(AssetsData.testImage),
           fit: BoxFit.fill,
