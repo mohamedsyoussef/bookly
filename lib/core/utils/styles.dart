@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class Styles {
-  static final mediumTitle = TextStyle(
+  static final montesrratTextStyle18 = TextStyle(
     fontSize: 18.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     fontFamily: 'Montserrat',
+  );
+  static final gtSctraFineTextStyle20 = TextStyle(
+    fontSize: 20.sp,
+    fontFamily: 'GtSectraFine',
   );
 }

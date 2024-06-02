@@ -25,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
           Gap(49.h),
           Text(
             'Best Seller',
-            style: Styles.mediumTitle,
+            style: Styles.montesrratTextStyle18,
             textAlign: TextAlign.left,
           ),
           Gap(20.h),
@@ -42,7 +42,7 @@ class BestSellerListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 254.w,
+      width: 2800.w,
       height: 105.h,
       child: Row(
         children: [
@@ -52,35 +52,47 @@ class BestSellerListView extends StatelessWidget {
             child: Image.asset(AssetsData.testImage),
           ),
           Gap(30.w),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Book Name',
-                style: Styles.mediumTitle,
-              ),
-              Gap(2.h),
-              Text(
-                'Book author',
-                style: Styles.mediumTitle
-                    .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w500),
-              ),
-              Row(
-                children: [
-                  const Text('19.99EGP'),
-                  const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  Text(
-                    '4.5',
-                    style: Styles.mediumTitle
-                        .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w500),
-                  ),
-                  const Text('(2330)')
-                ],
-              )
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Book Name',
+                  style: Styles.gtSctraFineTextStyle20
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                Gap(2.h),
+                Text(
+                  'Book author',
+                  style: Styles.montesrratTextStyle18
+                      .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w500),
+                ),
+                Gap(5.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '19.99 \$',
+                      style: Styles.montesrratTextStyle18
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    Row(children: [
+                      const Icon(
+                        Icons.star_outlined,
+                        color: Colors.amber,
+                      ),
+                      Text(
+                        '4.5',
+                        style: Styles.montesrratTextStyle18
+                            .copyWith(fontSize: 16.sp),
+                      ),
+                      Gap(9.w),
+                      const Text('(2330)'),
+                    ])
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
