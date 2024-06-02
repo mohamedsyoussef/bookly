@@ -27,10 +27,16 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    
   fonts:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-SemiBold.ttf
+
     - family: GtSectraFine
       fonts:
         - asset: assets/fonts/GT Sectra Fine Book.ttf
+
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-Black.ttf

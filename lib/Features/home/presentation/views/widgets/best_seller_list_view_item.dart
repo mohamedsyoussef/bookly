@@ -2,7 +2,7 @@ import 'package:bookly_app/core/functions/navigation.dart';
 import 'package:bookly_app/core/routes/routes.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widgets/custom_rating.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/custom_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';

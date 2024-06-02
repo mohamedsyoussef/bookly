@@ -11,4 +11,8 @@ abstract class Styles {
     fontSize: 20.sp,
     fontFamily: 'GtSectraFine',
   );
+  static final gilroyTextStyle16 = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: 'Gilroy',
+  );
 }

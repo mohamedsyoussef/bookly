@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
-import '../utils/styles.dart';
+import '../../../../../core/utils/styles.dart';
 
 class CustomRating extends StatelessWidget {
   const CustomRating({
