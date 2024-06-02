@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
           const CustomAppbar(),
           Gap(46.9.h),
           const FeaturedBooksListView(),
-          Gap(49.h),
+          Gap(20.h),
           Text(
             'Best Seller',
             style: Styles.montesrratTextStyle18,
