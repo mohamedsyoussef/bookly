@@ -22,14 +22,14 @@ class HomeViewBody extends StatelessWidget {
             children: [
               Gap(48.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppConstants.horizontalPadding),
+                padding: AppConstants.horizontalPadding,
                 child: const CustomAppbar(),
               ),
               Gap(46.9.h),
               const FeaturedBooksListView(),
               Gap(20.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppConstants.horizontalPadding),
+                padding: AppConstants.horizontalPadding,
                 child: Text(
                   'Best Seller',
                   style: Styles.montesrratTextStyle18,
@@ -42,7 +42,8 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverFillRemaining(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppConstants.horizontalPadding),
+          padding:
+              AppConstants.horizontalPadding,
           child: const BestSellerListView(),
         )),
       ],
