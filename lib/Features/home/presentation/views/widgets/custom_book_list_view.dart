@@ -2,8 +2,8 @@ import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomBookView extends StatelessWidget {
-  const CustomBookView({
+class CustomBookListView extends StatelessWidget {
+  const CustomBookListView({
     super.key,
   });
 
