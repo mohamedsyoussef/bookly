@@ -1,12 +1,12 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widgets/custom_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import 'custom_book_details_app_bar.dart';
+import 'custom_book_details_rating.dart';
 
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({super.key});
@@ -33,6 +33,7 @@ class BookDetailsBody extends StatelessWidget {
               style: Styles.gtSctraFineTextStyle20
                   .copyWith(fontWeight: FontWeight.bold, fontSize: 30.sp),
             ),
+            Gap(4.h),
             Text(
               'The Jungle Book',
               style: Styles.montesrratTextStyle18.copyWith(
@@ -41,9 +42,9 @@ class BookDetailsBody extends StatelessWidget {
                   fontWeight: FontWeight.w100),
             ),
             Gap(14.h),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 44.0),
-              child: const CustomRating(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 44.0),
+              child: CustomBookDetailsRating(),
             )
           ],
         ),
