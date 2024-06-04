@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/favourite_books_item.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -19,15 +20,14 @@ class BookDetailsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Gap(40.h),
+            Gap(20.h),
             const CustomBookDetailsAppBar(),
-            Gap(36.h),
+            Gap(20.h),
             SizedBox(
               height: 243.h,
               width: 162.w,
               child: Image.asset(AssetsData.testImage),
             ),
-            Gap(10.h),
             Text(
               'The Jungle Book',
               style: Styles.gtSctraFineTextStyle20
@@ -47,8 +47,19 @@ class BookDetailsBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 44.0),
               child: CustomBookDetailsRating(),
             ),
-            Gap(37.h),
+            Gap(20.h),
             const BooksAction(),
+            Gap(30.h),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'You can also like',
+                style: Styles.montesrratTextStyle18
+                    .copyWith(fontSize: 14.sp, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Gap(20.h),
+            const FavouriteBooksList(),
           ],
         ),
       ),
@@ -56,3 +67,21 @@ class BookDetailsBody extends StatelessWidget {
   }
 }
 
+class FavouriteBooksList extends StatelessWidget {
+  const FavouriteBooksList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 112.h,
+      child: ListView.separated(
+        separatorBuilder: (context, index) => Gap(10.h),
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
+          return const FavouriteBooksItem();
+        },
+      ),
+    );
+  }
+}
