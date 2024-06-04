@@ -1,4 +1,3 @@
-import 'package:bookly_app/Features/home/presentation/views/widgets/favourite_books_item.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -8,6 +7,7 @@ import 'package:gap/gap.dart';
 import 'books_action.dart';
 import 'custom_book_details_app_bar.dart';
 import 'custom_book_details_rating.dart';
+import 'custom_book_image_list.dart';
 
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({super.key});
@@ -59,28 +59,9 @@ class BookDetailsBody extends StatelessWidget {
               ),
             ),
             Gap(20.h),
-            const FavouriteBooksList(),
+            const CustomBookImageList(),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class FavouriteBooksList extends StatelessWidget {
-  const FavouriteBooksList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 112.h,
-      child: ListView.separated(
-        separatorBuilder: (context, index) => Gap(10.h),
-        scrollDirection: Axis.horizontal,
-        itemCount: 10,
-        itemBuilder: (BuildContext context, int index) {
-          return const FavouriteBooksItem();
-        },
       ),
     );
   }
