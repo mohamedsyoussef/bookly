@@ -14,10 +14,9 @@ class BooksAction extends StatelessWidget {
         Expanded(
           child: CustomButton(
             textStyle: Styles.montesrratTextStyle18.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 16.sp,
-              color: Colors.black
-            ),
+                fontWeight: FontWeight.bold,
+                fontSize: 16.sp,
+                color: Colors.black),
             buttonLabel: '19.99 \$',
             backgroundColor: Colors.white,
             borderRadius: const BorderRadius.only(

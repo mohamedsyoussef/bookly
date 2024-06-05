@@ -42,8 +42,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverFillRemaining(
             child: Padding(
-          padding:
-              AppConstants.horizontalPadding,
+          padding: AppConstants.horizontalPadding,
           child: const BestSellerListView(),
         )),
       ],

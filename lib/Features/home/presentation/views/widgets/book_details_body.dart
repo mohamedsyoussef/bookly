@@ -15,53 +15,53 @@ class BookDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: AppConstants.horizontalPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Gap(20.h),
-            const CustomBookDetailsAppBar(),
-            Gap(20.h),
-            SizedBox(
-              height: 243.h,
-              width: 162.w,
-              child: Image.asset(AssetsData.testImage),
-            ),
-            Text(
-              'The Jungle Book',
-              style: Styles.gtSctraFineTextStyle20
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 30.sp),
-            ),
-            Gap(4.h),
-            Text(
-              'The Jungle Book',
-              style: Styles.montesrratTextStyle18.copyWith(
-                  fontSize: 18.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w100,
-                  fontStyle: FontStyle.italic),
-            ),
-            Gap(14.h),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 44.0),
-              child: CustomBookDetailsRating(),
-            ),
-            Gap(20.h),
-            const BooksAction(),
-            Gap(30.h),
-            Align(
-              alignment: Alignment.centerLeft,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Gap(20.h),
+          const CustomBookDetailsAppBar(),
+          Gap(20.h),
+          SizedBox(
+            height: 243.h,
+            width: 162.w,
+            child: Image.asset(AssetsData.testImage),
+          ),
+          Text(
+            'The Jungle Book',
+            style: Styles.gtSctraFineTextStyle20
+                .copyWith(fontWeight: FontWeight.bold, fontSize: 30.sp),
+          ),
+          Gap(4.h),
+          Text(
+            'The Jungle Book',
+            style: Styles.montesrratTextStyle18.copyWith(
+                fontSize: 18.sp,
+                color: Colors.grey,
+                fontWeight: FontWeight.w100,
+                fontStyle: FontStyle.italic),
+          ),
+          Gap(14.h),
+          const CustomBookDetailsRating(),
+          Gap(20.h),
+          Padding(
+            padding: AppConstants.horizontalPadding,
+            child: const BooksAction(),
+          ),
+          Gap(30.h),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: AppConstants.horizontalPadding,
               child: Text(
                 'You can also like',
                 style: Styles.montesrratTextStyle18
                     .copyWith(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),
             ),
-            Gap(20.h),
-            const CustomBookImageList(),
-          ],
-        ),
+          ),
+          Gap(20.h),
+          const CustomBookImageList(),
+        ],
       ),
     );
   }

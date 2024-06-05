@@ -19,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       customReplacementNavigate(context, homeScreen);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
