@@ -1,56 +1,54 @@
+import 'package:dio/dio.dart';
+
 abstract class Failure {
-  final String message;
-
-  Failure(this.message);
-
-  @override
-  String toString() => message;
+  final String errMessage;
+  Failure(this.errMessage);
 }
 
 class ServerFailure extends Failure {
-  ServerFailure([super.message = 'Server Failure']);
-}
+  ServerFailure(super.errMessage);
+  factory ServerFailure.fromDioException(DioException dioException) {
+    switch (dioException.type) {
+      case DioExceptionType.connectionTimeout:
+        return ServerFailure('Connection Timeout with ApiServer');
 
-class CacheFailure extends Failure {
-  CacheFailure([super.message = 'Cache Failure']);
-}
+      case DioExceptionType.sendTimeout:
+        return ServerFailure('Send Timeout with ApiServer');
+      case DioExceptionType.receiveTimeout:
+        return ServerFailure('Receive Timeout with ApiServer');
+      case DioExceptionType.badCertificate:
+        return ServerFailure('Bad Certificate with ApiServer');
+      case DioExceptionType.badResponse:
+        return ServerFailure.fromResponse(
+          dioException.response!.statusCode!,
+          dioException.response!.data,
+        );
+      case DioExceptionType.cancel:
+        return ServerFailure('Request Cancelled with ApiServer');
+      case DioExceptionType.connectionError:
+        return ServerFailure('Connection Error with ApiServer');
 
-class OfflineFailure extends Failure {
-  OfflineFailure([super.message = 'Offline Failure']);
-}
-
-class UnknownFailure extends Failure {
-  UnknownFailure([super.message = 'Unknown Failure']);
-}
-
-class AuthenticationFailure extends Failure {
-  AuthenticationFailure([super.message = 'Authentication Failure']);
-}
-
-class TimeoutFailure extends Failure {
-  TimeoutFailure([super.message = 'Timeout Failure']);
-}
-
-class PermissionFailure extends Failure {
-  PermissionFailure([super.message = 'Permission Denied']);
-}
-
-class ValidationFailure extends Failure {
-  ValidationFailure([super.message = 'Validation Failure']);
-}
-
-class DatabaseFailure extends Failure {
-  DatabaseFailure([super.message = 'Database Failure']);
-}
-
-class NetworkFailure extends Failure {
-  NetworkFailure([super.message = 'Network Failure']);
-}
-
-class ApiFailure extends Failure {
-  ApiFailure([super.message = 'API Failure']);
-}
-
-class InvalidInputFailure extends Failure {
-  InvalidInputFailure([super.message = 'Invalid Input']);
+      case DioExceptionType.unknown:
+        if (dioException.message!.contains('SocketException')) {
+          return ServerFailure('No Internet Connection');
+        }
+        return ServerFailure('Unexpected Error with ApiServer');
+      default:
+        return ServerFailure('Opps something went wrong');
+    }
+  }
+  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      return ServerFailure(response['error']['message']);
+    }
+    else if (statusCode == 404) {
+      return ServerFailure('Your request not found');
+    }
+    else if (statusCode == 500) {
+      return ServerFailure('Something went wrong on server');
+    }
+    else {
+      return ServerFailure('Something went wrong');
+    }
+  }
 }
