@@ -12,7 +12,7 @@ class HomeRepoImplement implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     try {
-      var response = await apiService.get('volumes?q=flutter');
+      var response = await apiService.get('volumes?q=politic');
 
       List<BookModel> books = [];
       for (var item in response['items']) {
