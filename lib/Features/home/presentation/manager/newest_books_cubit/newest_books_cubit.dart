@@ -7,11 +7,11 @@ import '../../../data/models/book_model/book_model.dart';
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this._homeRepo) : super(NewestBooksInitial());
-  final HomeRepo _homeRepo;
+  NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
+  final HomeRepo homeRepo;
   Future<void> fetchNewestBooks() async {
     emit(NewestBooksLoading());
-    var result = await _homeRepo.fetchBestSellerBooks();
+    var result = await homeRepo.fetchBestSellerBooks();
     result.fold(
       (failure) => emit(NewestBooksFailure(failure.errMessage)),
       (books) => emit(NewestBooksSuccess(books)),

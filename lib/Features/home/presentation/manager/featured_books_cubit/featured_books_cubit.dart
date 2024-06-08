@@ -7,12 +7,12 @@ import '../../../data/models/book_model/book_model.dart';
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this._homeRepo) : super(FeaturedBooksInitial());
-  final HomeRepo _homeRepo;
+  FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
+  final HomeRepo homeRepo;
   Future<void> fetchFeaturedBooks() async {
     emit(FeaturedBooksLoading());
     Either<Failure, List<BookModel>> result =
-        await _homeRepo.fetchFeaturedBooks();
+        await homeRepo.fetchFeaturedBooks();
     result.fold((failure) {
       emit(FeaturedBooksFailure(failure.errMessage));
     }, (books) {
