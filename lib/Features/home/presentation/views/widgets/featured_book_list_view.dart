@@ -4,6 +4,7 @@ import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 import 'custom_book_list_view.dart';
 
@@ -17,7 +18,9 @@ class FeaturedBooksListView extends StatelessWidget {
         if (state is FeaturedBooksSuccess) {
           return SizedBox(
             height: 230.h,
-            child: ListView.builder(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => Gap(10.h),
+
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
