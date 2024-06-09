@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/core/functions/navigation.dart';
 import 'package:bookly_app/core/routes/routes.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -7,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key, required this.imageUrl});
-  final String imageUrl;
+class BestSellerItem extends StatelessWidget {
+  const BestSellerItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +25,21 @@ class BestSellerListViewItem extends StatelessWidget {
             SizedBox(
               width: 70.w,
               height: 105.h,
-              child: CachedNetworkImage(imageUrl: imageUrl),
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.r),
+                    border: Border.all(color: Colors.white, width: 2.w),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ),
             ),
             Gap(30.w),
             Expanded(
@@ -32,7 +47,7 @@ class BestSellerListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Harry Potter and the Goblet of Fire',
+                    bookModel.volumeInfo?.title ?? "",
                     style: Styles.gtSctraFineTextStyle20
                         .copyWith(fontWeight: FontWeight.bold),
                     overflow: TextOverflow.ellipsis,
@@ -40,12 +55,14 @@ class BestSellerListViewItem extends StatelessWidget {
                   ),
                   Gap(2.h),
                   Text(
-                    'J.K. Rowling',
+                    bookModel.volumeInfo?.authors?.first ?? "",
                     style: Styles.montesrratTextStyle18
                         .copyWith(fontSize: 14.sp, color: Colors.grey),
                   ),
                   Gap(5.h),
-                  const CustomRating()
+                   CustomRating(
+                    price:bookModel.saleInfo?.saleability?.toString() ?? "",
+                  )
                 ],
               ),
             )

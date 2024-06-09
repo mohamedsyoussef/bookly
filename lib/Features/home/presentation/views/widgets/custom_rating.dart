@@ -8,15 +8,16 @@ import '../../../../../core/utils/styles.dart';
 class CustomRating extends StatelessWidget {
   const CustomRating({
     super.key,
+    required this.price,
   });
-
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '19.99 \$',
+          '$price \$',
           style: Styles.montesrratTextStyle18
               .copyWith(fontWeight: FontWeight.bold, fontSize: 16.sp),
         ),

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/widgets/custom_error_message.dart';
 import '../../../../../core/widgets/custom_loading_indicator.dart';
-import 'best_seller_list_view_item.dart';
+import 'best_seller_item.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});
@@ -22,15 +22,15 @@ class BestSellerListView extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h),
-                child:  BestSellerListViewItem(
-                  imageUrl: state.books[index].volumeInfo?.imageLinks?.thumbnail??"",
+                child: BestSellerItem(
+                  bookModel: state.books[index],
                 ),
               );
             },
           );
         } else if (state is NewestBooksFailure) {
           return CustomErrorMessage(errMessage: state.errMessage);
-        } else {  
+        } else {
           return const CustomLoadingIndicator();
         }
       },

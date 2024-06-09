@@ -13,20 +13,16 @@ class FeaturedBookItem extends StatelessWidget {
     return CachedNetworkImage(
       imageUrl: imageUrl,
       errorWidget: (context, url, error) => const Icon(Icons.error),
-      placeholder: (context, url) => const Center(
-        child: CircularProgressIndicator(),
-      ),
       imageBuilder: (context, imageProvider) => Container(
         margin: EdgeInsets.symmetric(horizontal: 5.w),
         width: 140.w,
         height: 200.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.r),
+          borderRadius: BorderRadius.circular(10.r),
           border: Border.all(color: Colors.white, width: 2.w),
           image: DecorationImage(
             image: imageProvider,
             fit: BoxFit.fill,
-            
           ),
         ),
       ),
