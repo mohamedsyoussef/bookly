@@ -1,6 +1,5 @@
 import 'package:bookly_app/core/functions/navigation.dart';
 import 'package:bookly_app/core/routes/routes.dart';
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_rating.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+  const BestSellerListViewItem({super.key, required this.imageUrl});
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +23,7 @@ class BestSellerListViewItem extends StatelessWidget {
             SizedBox(
               width: 70.w,
               height: 105.h,
-              child: Image.asset(AssetsData.testImage),
+              child: Image.network(imageUrl),
             ),
             Gap(30.w),
             Expanded(

@@ -19,7 +19,7 @@ class FeaturedBooksListView extends StatelessWidget {
           return SizedBox(
             height: 230.h,
             child: ListView.separated(
-              separatorBuilder: (context, index) => Gap(10.h),
+              separatorBuilder: (context, index) => Gap(5.h),
 
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,

@@ -11,9 +11,10 @@ class CustomBookImageList extends StatelessWidget {
     return SizedBox(
       height: 112.h,
       child: ListView.separated(
-        separatorBuilder: (context, index) => Gap(10.h),
+      
+        itemCount: 20,
+        separatorBuilder: (context, index) => Gap(5.h),
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
           return const CustomBookImage();
         },
