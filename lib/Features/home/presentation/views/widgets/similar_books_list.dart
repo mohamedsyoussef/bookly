@@ -19,11 +19,13 @@ class SimiliarBooksList extends StatelessWidget {
           return SizedBox(
             height: 112.h,
             child: ListView.separated(
-              itemCount: 20,
+              itemCount: state.books.length,
               separatorBuilder: (context, index) => Gap(5.h),
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return const CustomBookImage();
+                return  CustomBookImage(
+                  urlImage: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                );
               },
             ),
           );

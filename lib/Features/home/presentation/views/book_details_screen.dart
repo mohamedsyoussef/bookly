@@ -1,5 +1,6 @@
 import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../manager/similiar_books_cubit/similiar_books_cubit.dart';
@@ -23,6 +24,8 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const BookDetailsBody();
+    return BookDetailsBody(
+      bookModel: widget.bookModel,
+    );
   }
 }

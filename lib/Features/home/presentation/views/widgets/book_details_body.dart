@@ -1,6 +1,7 @@
-import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -10,8 +11,8 @@ import 'custom_book_details_rating.dart';
 import 'similar_books_list.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
-
+  const BookDetailsBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +25,31 @@ class BookDetailsBody extends StatelessWidget {
           SizedBox(
             height: 243.h,
             width: 162.w,
-            child: Image.asset(AssetsData.testImage),
+            child: CachedNetworkImage(
+              imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            ),
           ),
+          Gap(20.h),
           Text(
-            'The Jungle Book',
+            bookModel.volumeInfo?.title ?? "",
             style: Styles.gtSctraFineTextStyle20
-                .copyWith(fontWeight: FontWeight.bold, fontSize: 30.sp),
+                .copyWith(fontWeight: FontWeight.bold, fontSize: 20.sp),
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
           ),
           Gap(4.h),
           Text(
-            'The Jungle Book',
+            bookModel.volumeInfo?.authors?.first ?? "",
             style: Styles.montesrratTextStyle18.copyWith(
                 fontSize: 18.sp,
                 color: Colors.grey,
@@ -41,7 +57,10 @@ class BookDetailsBody extends StatelessWidget {
                 fontStyle: FontStyle.italic),
           ),
           Gap(14.h),
-          const CustomBookDetailsRating(),
+          CustomBookDetailsRating(
+            averageRating: bookModel.volumeInfo?.averageRating ?? 0.0,
+            ratingCount: bookModel.volumeInfo?.ratingsCount ?? 0,
+          ),
           Gap(20.h),
           Padding(
             padding: AppConstants.horizontalPadding,
@@ -53,7 +72,7 @@ class BookDetailsBody extends StatelessWidget {
             child: Padding(
               padding: AppConstants.horizontalPadding,
               child: Text(
-                'You can also like',
+                'You can also like:',
                 style: Styles.montesrratTextStyle18
                     .copyWith(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),

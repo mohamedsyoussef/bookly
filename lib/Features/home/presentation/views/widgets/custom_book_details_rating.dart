@@ -6,8 +6,13 @@ import 'package:gap/gap.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomBookDetailsRating extends StatelessWidget {
-  const CustomBookDetailsRating({super.key});
-
+  const CustomBookDetailsRating({
+    super.key,
+    required this.averageRating,
+    required this.ratingCount,
+  });
+  final num averageRating;
+  final int ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,12 +25,12 @@ class CustomBookDetailsRating extends StatelessWidget {
         ),
         Gap(1.w),
         Text(
-          '4.5',
+          averageRating.toString(),
           style: Styles.montesrratTextStyle18.copyWith(fontSize: 16.sp),
         ),
         Gap(4.w),
         Text(
-          '(2330)',
+          '($ratingCount)',
           style: Styles.montesrratTextStyle18
               .copyWith(fontSize: 14.sp, color: Colors.grey),
         )
