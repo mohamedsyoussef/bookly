@@ -18,13 +18,13 @@ class BestSellerItem extends StatelessWidget {
         customNavigate(context, bookDetailsScreen);
       },
       child: SizedBox(
-        width: 280.w,
-        height: 105.h,
+        width: 290.w,
+        height: 120.h,
         child: Row(
           children: [
             SizedBox(
-              width: 70.w,
-              height: 105.h,
+              width: 80.w,
+              height: 110.h,
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
                 imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
