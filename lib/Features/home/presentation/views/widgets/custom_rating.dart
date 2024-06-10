@@ -9,8 +9,12 @@ class CustomRating extends StatelessWidget {
   const CustomRating({
     super.key,
     required this.price,
+    required this.averageRating,
+    required this.ratingCount,
   });
   final String price;
+  final num averageRating;
+  final int ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,12 +33,12 @@ class CustomRating extends StatelessWidget {
         ),
         Gap(1.w),
         Text(
-          '4.5',
+          '$averageRating',
           style: Styles.montesrratTextStyle18.copyWith(fontSize: 16.sp),
         ),
         Gap(4.w),
         Text(
-          '(2330)',
+          '($ratingCount)',
           style: Styles.montesrratTextStyle18
               .copyWith(fontSize: 14.sp, color: Colors.grey),
         )

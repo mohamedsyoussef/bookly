@@ -60,8 +60,11 @@ class BestSellerItem extends StatelessWidget {
                         .copyWith(fontSize: 14.sp, color: Colors.grey),
                   ),
                   Gap(5.h),
-                   CustomRating(
-                    price:bookModel.saleInfo?.saleability?.toString() ?? "",
+                  CustomRating(
+                    averageRating: bookModel.volumeInfo?.averageRating ?? 0.0,
+                    ratingCount: bookModel.volumeInfo?.ratingsCount ?? 0,
+                    price: bookModel.saleInfo?.listPrice?.amount?.toString() ??
+                        "0.0",
                   )
                 ],
               ),
