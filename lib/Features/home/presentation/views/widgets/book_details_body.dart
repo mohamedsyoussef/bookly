@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 import 'books_action.dart';
 import 'custom_book_details_app_bar.dart';
 import 'custom_book_details_rating.dart';
-import 'custom_book_image_list.dart';
+import 'similar_books_list.dart';
 
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({super.key});
@@ -60,7 +60,7 @@ class BookDetailsBody extends StatelessWidget {
             ),
           ),
           Gap(20.h),
-          const CustomBookImageList(),
+          const SimiliarBooksList(),
         ],
       ),
     );

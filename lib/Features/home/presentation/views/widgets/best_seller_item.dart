@@ -15,7 +15,7 @@ class BestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        customNavigate(context, bookDetailsScreen);
+        customNavigate(context, bookDetailsScreen, extra: bookModel);
       },
       child: SizedBox(
         width: 290.w,
