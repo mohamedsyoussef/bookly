@@ -58,6 +58,7 @@ class BestSellerItem extends StatelessWidget {
                     bookModel.volumeInfo?.authors?.first ?? "",
                     style: Styles.montesrratTextStyle18
                         .copyWith(fontSize: 14.sp, color: Colors.grey),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Gap(5.h),
                   CustomRating(

@@ -14,19 +14,15 @@ class BestSellerListView extends StatelessWidget {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         if (state is NewestBooksSuccess) {
-          return ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.zero,
-            itemCount: state.books.length,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) {
+          return Column(
+            children: List.generate(state.books.length, (index) {
               return Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h),
                 child: BestSellerItem(
                   bookModel: state.books[index],
                 ),
               );
-            },
+            }),
           );
         } else if (state is NewestBooksFailure) {
           return CustomErrorMessage(errMessage: state.errMessage);

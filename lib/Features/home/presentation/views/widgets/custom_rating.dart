@@ -21,7 +21,7 @@ class CustomRating extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '$price \$',
+          '$price EGP',
           style: Styles.montesrratTextStyle18
               .copyWith(fontWeight: FontWeight.bold, fontSize: 16.sp),
         ),
