@@ -60,7 +60,7 @@ class HomeRepoImplement implements HomeRepo {
       {required String category}) async {
     try {
       var response = await apiService.get(
-          'volumes?q=subject:programming&sorting=relevance&Filter=free-ebooks&maxResults=40');
+          'volumes?q=sports&sorting=relevance&Filter=free-ebooks&maxResults=40&category=$category');
       List<BookModel> books = [];
       for (var item in response['items']) {
         books.add(BookModel.fromJson(item));

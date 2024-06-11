@@ -3,8 +3,6 @@ import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
-
 import '../../../../../core/widgets/custom_error_message.dart';
 import '../../../../../core/widgets/custom_loading_indicator.dart';
 
@@ -18,13 +16,15 @@ class SimiliarBooksList extends StatelessWidget {
         if (state is SimiliarBooksSuccess) {
           return SizedBox(
             height: 112.h,
-            child: ListView.separated(
+            child: ListView.builder(
+              padding: EdgeInsets.only(right: 5.w),
               itemCount: state.books.length,
-              separatorBuilder: (context, index) => Gap(5.h),
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return  CustomBookImage(
-                  urlImage: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                return CustomBookImage(
+                  urlImage:
+                      state.books[index].volumeInfo!.imageLinks?.thumbnail ??
+                          '',
                 );
               },
             ),

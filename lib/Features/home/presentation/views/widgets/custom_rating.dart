@@ -14,7 +14,7 @@ class CustomRating extends StatelessWidget {
   });
   final String price;
   final num averageRating;
-  final int ratingCount;
+  final num ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(

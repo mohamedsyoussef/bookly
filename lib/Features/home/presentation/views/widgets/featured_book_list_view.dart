@@ -1,9 +1,11 @@
 import 'package:bookly_app/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
+import 'package:bookly_app/core/functions/navigation.dart';
 import 'package:bookly_app/core/widgets/custom_error_message.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/routes/routes.dart';
 import 'featured_book_item.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -21,6 +23,8 @@ class FeaturedBooksListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 return FeaturedBookItem(
+                  onTap: () => customNavigate(context, bookDetailsScreen,
+                      extra: state.books[index]),
                   imageUrl:
                       state.books[index].volumeInfo?.imageLinks?.thumbnail ??
                           "",

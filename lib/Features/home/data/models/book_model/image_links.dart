@@ -8,7 +8,8 @@ class ImageLinks extends Equatable {
 
   factory ImageLinks.fromJson(Map<String, dynamic> json) => ImageLinks(
         smallThumbnail: json['smallThumbnail'] as String?,
-        thumbnail: json['thumbnail'] as String?,
+        thumbnail:
+            json['thumbnail'] == null ? null : json['thumbnail'] as String?,
       );
 
   Map<String, dynamic> toJson() => {

@@ -12,7 +12,7 @@ class CustomBookDetailsRating extends StatelessWidget {
     required this.ratingCount,
   });
   final num averageRating;
-  final int ratingCount;
+  final num ratingCount;
   @override
   Widget build(BuildContext context) {
     return Row(
